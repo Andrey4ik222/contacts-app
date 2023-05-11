@@ -1,0 +1,24 @@
+.table-wrapper {
+  margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  width: 100vw;
+}
+
+.table {
+  border-collapse: collapse;
+  width: 70%;
+  height: 50%;
+}
+
+td {
+  padding: 8px;
+  border: 1px solid;
+  height: 35px;
+}
+.table-delete-contact__button {
+  background-color: red;
+  border: 1px solid;
+  color: white;
+  cursor: pointer;
+}

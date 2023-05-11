@@ -1,0 +1,13 @@
+.open-form-button {
+  padding: 8px;
+  border: 0;
+  background-color: rgb(75, 225, 75);
+  max-width: 135px;
+  cursor: pointer;
+}
+.app-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
