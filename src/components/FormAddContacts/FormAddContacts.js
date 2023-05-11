@@ -11,19 +11,9 @@ class FormAddContacts extends Component {
     };
   }
 
-  handleChangeName = (event) => {
+  handleChange = (event) => {
     this.setState({
-      name: event.target.value,
-    });
-  };
-  handleChangeUsername = (event) => {
-    this.setState({
-      username: event.target.value,
-    });
-  };
-  handleChangePhone = (event) => {
-    this.setState({
-      phone: event.target.value,
+      [event.target.name]: event.target.value,
     });
   };
 
@@ -57,31 +47,29 @@ class FormAddContacts extends Component {
   };
 
   render() {
+    const inputs = [
+      { name: "name", placeholder: "Name...", type: "text" },
+      { name: "username", placeholder: "Username...", type: "text" },
+      { name: "phone", placeholder: "Phone...", type: "number" },
+    ];
+
     if (this.props.showForm) {
       return (
         <div className="form-wrapper">
           <form className="form" onSubmit={this.addUserToTable}>
-            <input
-              placeholder="Name..."
-              type="text"
-              className="form-input__name"
-              value={this.state.name}
-              onChange={this.handleChangeName}
-            />
-            <input
-              placeholder="Username..."
-              type="text"
-              className="form-input__username"
-              value={this.state.username}
-              onChange={this.handleChangeUsername}
-            />
-            <input
-              placeholder="Phone..."
-              type="number"
-              className="form-input__phone"
-              value={this.state.phone}
-              onChange={this.handleChangePhone}
-            />
+            {inputs.map((elem) => {
+              return (
+                <input
+                  key={elem.name}
+                  name={elem.name}
+                  placeholder={elem.placeholder}
+                  type={elem.type}
+                  className={`form-input__${elem.name}`}
+                  value={this.state[elem.name]}
+                  onChange={this.handleChange}
+                />
+              );
+            })}
             <button type="submit">Save</button>
             <button type="button" onClick={this.closeFormAndClearInpup}>
               Close

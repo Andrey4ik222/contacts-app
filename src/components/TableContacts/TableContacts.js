@@ -15,7 +15,7 @@ class TableContacts extends Component {
         <table className="table">
           {this.props.users.map((user) => {
             return (
-              <tbody key={user.id + Math.random()}>
+              <tbody key={user.id}>
                 <tr>
                   <td key={`table-name-${user.id}`}>{user.name}</td>
                   <td key={`table-username-${user.id}`}>{user.username}</td>
